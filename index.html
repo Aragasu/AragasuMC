@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AragasuMC</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="container">
+    <!-- Background texture behind main SVG -->
+    <img src="images/bg1.svg" alt="" class="background-svg-bg1">
+    <!-- Main background SVG -->
+    <img src="images/nobg.svg" alt="" class="background-svg">
+
+    <div class="content-wrapper">
+      <!-- Scrambled title -->
+      <h1 id="scramble-text">AragasuMC</h1>
+
+      <!-- Typing subtitle & IP -->
+      <p class="subtitle" id="typing-text"></p>
+      <p class="ip" id="typing-ip"></p>
+
+      <div class="card">
+        <a class="btn primary" href="minecraft://mc.aragasu.xyz">Connect Now</a>
+        <button class="btn secondary" id="copy-btn">Copy IP</button>
+      </div>
+
+      <div class="contact-container">
+        <a class="btn secondary" href="https://discord.com/users/873234979239383040" target="_blank">Contact Me</a>
+      </div>
+    </div>
+
+    <!-- Sticky Disclaimer -->
+    <p class="disclaimer">
+      The AragasuMC server is in no way affiliated with Mojang Studios, nor should it be considered a company endorsed by Mojang Studios.<br>
+      For support, please send a message to aragasu on discord by clicking the Contact button.<br>
+      Minecraft ®/TM, Mojang Studios / Notch © 2009-2026
+    </p>
+  </main>
+
+  <script>
+    // === Scrambled text animation ===
+    const el = document.getElementById('scramble-text');
+    const chars = '!<>-_\\/[]{}—=+*^?#________';
+    const originalText = el.textContent;
+    let frame = 0;
+    const totalFrames = 30;
+    const frameDelay = 30;
+
+    function scramble() {
+      let output = '';
+      for (let i = 0; i < originalText.length; i++) {
+        if (Math.random() < frame / totalFrames) {
+          output += originalText[i];
+        } else {
+          output += chars[Math.floor(Math.random() * chars.length)];
+        }
+      }
+      el.textContent = output;
+      frame++;
+      if (frame <= totalFrames) {
+        requestAnimationFrame(() => setTimeout(scramble, frameDelay));
+      } else {
+        startTyping();
+      }
+    }
+
+    scramble();
+
+    // === Typing animation ===
+    const typingEl = document.getElementById('typing-text');
+    const typingIpEl = document.getElementById('typing-ip');
+    const typingText = "A Minecraft server by Aragasu";
+    const typingIPText = "IP: mc.aragasu.xyz";
+    let typingIndex = 0;
+    let ipIndex = 0;
+
+    function startTyping() {
+      function typeText() {
+        if (typingIndex < typingText.length) {
+          typingEl.textContent += typingText[typingIndex];
+          typingIndex++;
+          setTimeout(typeText, 80);
+        } else {
+          setTimeout(typeIP, 300);
+        }
+      }
+
+      function typeIP() {
+        if (ipIndex < typingIPText.length) {
+          typingIpEl.textContent += typingIPText[ipIndex];
+          ipIndex++;
+          setTimeout(typeIP, 50);
+        }
+      }
+
+      typeText();
+    }
+
+    // === Copy IP button ===
+    const copyBtn = document.getElementById('copy-btn');
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText("mc.aragasu.xyz").then(() => {
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => copyBtn.textContent = originalText, 1500);
+      });
+    });
+  </script>
+
+</body>
+</html>
