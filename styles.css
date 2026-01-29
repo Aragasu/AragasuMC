@@ -70,8 +70,8 @@ h1 {
 }
 
 .game-logo {
-  width: 100px;
-  max-width: 100%;  /* ensures it never exceeds column width */
+  width: 1000px;
+  max-width: 120%;  /* ensures it never exceeds column width */
   height: auto;
   margin-bottom: 0.5rem;
 }
