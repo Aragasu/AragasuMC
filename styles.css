@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Unbounded', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top, #7f00ff33, transparent 60%),
+    linear-gradient(135deg, #050008, #120014, #1a001f);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+.content-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 12vw, 5rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.gradient-mc {
+  background: linear-gradient(45deg, #8a2be2, #ff2fdc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(0.9rem, 1.8vw, 1.5rem);
+  color: rgba(255,255,255,0.8);
+  margin-top: 0.3rem;
+}
+
+.games-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.game-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px; /* fixed width for symmetry */
+}
+
+.game-logo {
+  width: 60px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.ip {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0.3rem 0;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.secondary {
+  border: 1px solid #ff2fdc;
+  color: #ff2fdc;
+  background: transparent;
+  box-shadow: 0 0 8px rgba(255, 47, 220, 0.4);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 20px rgba(255, 47, 220, 0.9),
+    0 0 40px rgba(138, 43, 226, 0.6);
+}
+
+.contact-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.divider {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px; /* vertical line */
+  background: rgba(255,255,255,0.3);
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.disclaimer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  line-height: 1.3;
+}
