@@ -70,8 +70,10 @@ h1 {
 }
 
 .game-logo {
-  width: 192px;
-  height: 108px;
+  max-width: 100%;
+  width: clamp(40px, 15vw, 60px);  /* scales between 40px and 60px */
+  height: auto;
+  object-fit: contain;
   margin-bottom: 0.5rem;
 }
 
