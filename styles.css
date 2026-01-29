@@ -43,20 +43,20 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 150%;
-  max-width: 100vw;  /* prevents mobile overflow */
-  opacity: 0.05;
+  width: 150vw;      /* ensures visibility on all devices */
+  max-width: none;
+  opacity: 0.05;     /* subtle */
   z-index: 0;
   pointer-events: none;
 }
 
 .background-svg {
   position: absolute;
-  top: 10%;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
-  width: 150%;
-  max-width: 100vw;  /* prevents mobile overflow */
+  width: 150vw;
+  max-width: none;
   opacity: 0.1;
   z-index: 1;
   pointer-events: none;
@@ -70,7 +70,7 @@ body {
 }
 
 h1 {
-  font-size: clamp(3rem, 10vw, 10vh); /* scales on mobile and desktop */
+  font-size: clamp(2.5rem, 8vw, 8rem); /* scales nicely for mobile and desktop */
   font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
