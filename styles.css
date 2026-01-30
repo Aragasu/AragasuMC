@@ -140,3 +140,19 @@ h1 {
   padding: 0.4rem 1rem;
   font-size: 0.75rem;
 }
+
+
+  .contact-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+  gap: 3.5rem; /* Abstand vom Divider */
+}
+
+.contact-divider {
+  width: 2px;
+  height: 28px;
+  background: rgba(255,255,255,0.3);
+}
