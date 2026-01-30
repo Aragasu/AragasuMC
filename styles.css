@@ -112,7 +112,15 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3.5rem;
+  margin-top: 5rem; /* erhöht den Abstand von oben, um Buttons nach unten zu setzen */
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 6rem; /* Abstand zwischen den Buttons */
 }
 
 .contact-title {
@@ -120,15 +128,6 @@ h1 {
   font-weight: 500;
   margin-bottom: 0.5rem;
   color: rgba(255, 255, 255, 0.8);
-}
-
-/* Row for buttons with centered divider */
-.contact-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  gap: 6rem;
 }
 
 /* Divider absolute center */
