@@ -71,7 +71,7 @@ h1 {
 
 .game-logo {
   width: 1000px;
-  max-width: 120%;  /* ensures it never exceeds column width */
+  max-width: 105%;  /* ensures it never exceeds column width */
   height: auto;
   margin-bottom: 0.5rem;
 }
