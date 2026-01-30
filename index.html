@@ -15,15 +15,16 @@
 
 <main class="container">
   <div class="content-wrapper">
-    <!-- Scrambled title with gradient MC -->
-    <h1 id="scramble-text">Aragasu<span class="gradient-mc">MC</span></h1>
+
+    <!-- Scrambled title -->
+    <h1 id="scramble-text" class="fade-in">Aragasu<span class="gradient-mc">MC</span></h1>
 
     <!-- Typing subtitle -->
-    <p class="subtitle" id="typing-subtitle"></p>
+    <p class="subtitle fade-in" id="typing-subtitle"></p>
 
-    <!-- Two-column game section -->
-    <div class="games-wrapper">
-      <!-- Minecraft column -->
+    <!-- Games section -->
+    <div class="games-wrapper fade-in">
+      <!-- Minecraft -->
       <div class="game-column">
         <img src="minecraft.svg" alt="Minecraft Logo" class="game-logo">
         <p class="ip">mc.aragasu.xyz</p>
@@ -33,7 +34,7 @@
       <!-- Divider -->
       <div class="divider"></div>
 
-      <!-- Hytale column -->
+      <!-- Hytale -->
       <div class="game-column">
         <img src="hytale.svg" alt="Hytale Logo" class="game-logo">
         <p class="ip">ht.aragasu.xyz</p>
@@ -41,35 +42,37 @@
       </div>
     </div>
 
-    <div class="contact-wrapper">
-  <a
-    class="btn secondary small"
-    href="https://discord.com/users/873234979239383040"
-    target="_blank"
-  >
-    Contact (Discord)
-  </a>
+    <!-- Contact section -->
+    <div class="contact-wrapper fade-in">
+      <h2 class="contact-title fade-in">Contact</h2>
 
-  <div class="contact-divider"></div>
+      <!-- Row with centered divider -->
+      <div class="contact-row">
+        <a class="btn secondary small" href="https://discord.com/users/873234979239383040" target="_blank">
+          Contact (Discord)
+        </a>
 
-  <a
-    class="btn secondary small"
-    href="mailto:contact@aragasu.xyz"
-  >
-    Contact (Email)
-  </a>
-</div>
+        <div class="contact-divider"></div>
+
+        <a class="btn secondary small" href="mailto:contact@aragasu.xyz">
+          Contact (Email)
+        </a>
+      </div>
+    </div>
+
+  </div>
+
   <!-- Disclaimer -->
-  <p class="disclaimer">
-    AragasuMC is an independent project and is not affiliated with, associated with, authorized by, endorsed by, or in any way officially connected with Mojang Studios, Minecraft, Hypixel Studios, or Hytale.
-All trademarks, service marks, and company names are the property of their respective owners.
-Minecraft® / Mojang Studios © 2009–2026
-Hytale® / Hypixel Studios
+  <p class="disclaimer fade-in">
+    AragasuMC is an independent project and is not affiliated with, associated with, authorized by, endorsed by, or in any way officially connected with Mojang Studios, Minecraft, Hypixel Studios, or Hytale.<br>
+    All trademarks, service marks, and company names are the property of their respective owners.<br>
+    Minecraft® / Mojang Studios © 2009–2026<br>
+    Hytale® / Hypixel Studios
   </p>
 </main>
 
 <script>
-  // === Scrambled title animation ===
+  // === Scrambled title ===
   const titleEl = document.getElementById('scramble-text');
   const titleChars = 'abcdefghijklmnopqrstuvwxyz#?!=()';
   const titleText = "AragasuMC";
@@ -96,7 +99,7 @@ Hytale® / Hypixel Studios
   }
   scrambleTitle();
 
-  // === Typing animation only for subtitle ===
+  // === Typing subtitle ===
   const subtitleEl = document.getElementById('typing-subtitle');
   const subtitleText = "Vanilla Servers by Aragasu";
   let subIndex = 0;
@@ -125,6 +128,13 @@ Hytale® / Hypixel Studios
       const orig = btn.textContent;
       btn.textContent = 'Copied!';
       setTimeout(()=>btn.textContent = orig,1500);
+    });
+  });
+
+  // === Fade-in animation for all ===
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      requestAnimationFrame(() => el.classList.add('visible'));
     });
   });
 </script>
