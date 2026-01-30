@@ -142,16 +142,26 @@ h1 {
 }
 
 
-  .contact-wrapper {
+.contact-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
-  position: relative;
-  gap: 3.5rem; /* Abstand vom Divider */
+  margin-top: 3.5rem;
+}
+
+.contact-wrapper .btn:first-child {
+  margin-right: 3.5rem;
+}
+
+.contact-wrapper .btn:last-child {
+  margin-left: 3.5rem;
 }
 
 .contact-divider {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   width: 2px;
   height: 28px;
   background: rgba(255,255,255,0.3);
