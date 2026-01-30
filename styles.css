@@ -109,12 +109,12 @@ h1 {
 /* === Buttons: black fill + purple outline/glow === */
 .btn.secondary {
   background-color: #000; /* schwarz */
-  color: transparent;      /* Text selbst unsichtbar */
+  color: #8a2be2;      /* Text selbst unsichtbar */
   -webkit-text-stroke: 1px #8a2be2; /* violette Outline */
   text-shadow:
-    0 0 4px #8a2be2,
-    0 0 8px #ff2fdc,
-    0 0 12px #8a2be2;
+    0 0 2px #8a2be2,
+    0 0 4px #ff2fdc,
+    0 0 6px #8a2be2;
   border: none;
   box-shadow: 0 0 8px rgba(138,43,226,0.6), 0 0 16px rgba(255,47,220,0.4);
 }
