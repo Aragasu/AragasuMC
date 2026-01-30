@@ -175,7 +175,15 @@ h1 {
   line-height: 1.3;
 }
 
-/* === Global Fade-in === */
+       /* Kleinerer, transparenter Text unter dem Disclaimer */
+copyright {
+  font-size: clamp(0.5rem, 1.2vw, 0.65rem);
+  color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+/* Fade-in bleibt wie bei anderen Elementen */
 .fade-in {
   opacity: 0;
   transform: translateY(12px);
