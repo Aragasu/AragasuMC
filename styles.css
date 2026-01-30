@@ -32,7 +32,7 @@ body::before {
     url('images/bg1.svg') center center / cover no-repeat,
     url('images/nobg.svg') center center / cover no-repeat;
   
-  opacity: 0.6; /* 60% sichtbar */
+  opacity: 0.3; /* 60% sichtbar */
   z-index: -1; /* hinter allem */
 }
 
