@@ -8,17 +8,32 @@ body {
   font-family: 'Unbounded', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at top, #7f00ff33, transparent 60%),
-    linear-gradient(135deg, #050008, #120014, #1a001f);
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-bottom: 4rem;
+
+  /* Hintergrund: BG1 SVG + Gradients */
+  background: 
+    linear-gradient(135deg, #050008, #120014, #1a001f);
+  position: relative;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('bg1.svg') center center / cover no-repeat;
+  opacity: 0.6; /* 60% sichtbar */
+  z-index: -1; /* hinter allem */
+}
+
+/* Container und Content */
 .container {
   width: 100%;
   text-align: center;
@@ -154,7 +169,7 @@ h1 {
   z-index: 0;
 }
 
-/* === Disclaimer === */
+/* === Disclaimer + All Rights Reserved === */
 .disclaimer {
   position: fixed;
   bottom: 1.2rem;
