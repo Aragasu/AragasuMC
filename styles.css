@@ -59,7 +59,7 @@ h1 {
   margin-top: 1.5rem;
   position: relative;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 5rem;
 }
 
 .game-column {
