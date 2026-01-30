@@ -1,3 +1,7 @@
 Copyright © 2026 AragasuMC. All Rights Reserved.
 
-This repository and its contents may not be copied, distributed, or modified without the author's permission.
+This repository and all its contents (including code, images, text, and other assets) are the exclusive property of AragasuMC.
+
+You may NOT copy, distribute, modify, publish, sublicense, or sell any part of this repository or its contents without prior written permission from AragasuMC.
+
+This repository is provided for informational and educational purposes only. AragasuMC reserves all legal rights not expressly granted herein.
