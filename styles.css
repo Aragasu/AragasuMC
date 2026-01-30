@@ -14,11 +14,8 @@ body {
   align-items: center;
   justify-content: center;
   padding-bottom: 4rem;
-
-  /* Hintergrund: BG1 SVG + Gradients */
-  background: 
-    linear-gradient(135deg, #050008, #120014, #1a001f);
   position: relative;
+  background: linear-gradient(135deg, #050008, #120014, #1a001f);
 }
 
 body::before {
@@ -28,15 +25,13 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    url('images/bg1.svg') center center / cover no-repeat,
-    url('images/nobg.svg') center center / cover no-repeat;
-  
-  opacity: 0.3; /* 60% sichtbar */
+  background:
+    url('images/nobg.svg') center center / cover no-repeat,
+    url('images/bg1.svg') center center / cover no-repeat;
+  opacity: 0.6; /* Gesamte Ebene auf 60% sichtbar */
   z-index: -1; /* hinter allem */
 }
 
-/* Container und Content */
 .container {
   width: 100%;
   text-align: center;
@@ -111,18 +106,30 @@ h1 {
   transition: all 0.25s ease;
 }
 
-.secondary {
-  border: 1px solid #ff2fdc;
-  color: #ff2fdc;
-  background: transparent;
-  box-shadow: 0 0 8px rgba(255, 47, 220, 0.4);
+/* === Buttons: black fill + purple outline/glow === */
+.btn.secondary {
+  background-color: #000; /* schwarz */
+  color: transparent;      /* Text selbst unsichtbar */
+  -webkit-text-stroke: 1px #8a2be2; /* violette Outline */
+  text-shadow:
+    0 0 4px #8a2be2,
+    0 0 8px #ff2fdc,
+    0 0 12px #8a2be2;
+  border: none;
+  box-shadow: 0 0 8px rgba(138,43,226,0.6), 0 0 16px rgba(255,47,220,0.4);
 }
 
-.btn:hover {
+.btn.secondary:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 0 20px rgba(255, 47, 220, 0.9),
-    0 0 40px rgba(138, 43, 226, 0.6);
+    0 0 12px #8a2be2,
+    0 0 24px #ff2fdc,
+    0 0 36px #8a2be2;
+}
+
+.btn.small {
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
 }
 
 /* === Contact Section === */
@@ -154,11 +161,6 @@ h1 {
 .contact-row a {
   position: relative;
   z-index: 1;
-}
-
-.btn.small {
-  padding: 0.4rem 1rem;
-  font-size: 0.75rem;
 }
 
 .divider {
