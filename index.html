@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>AragasuMC</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/amc_transparent.png">
-  <link rel="shortcut icon" href="/images/amc_transparent.png">
-
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/amc_transparent.png">
+  <link rel="shortcut icon" href="/images/amc_transparent.png">
 </head>
 <body>
 
-  <div class="content-wrapper fade-in">
-    <h1 id="scramble-text">
-      Aragasu<span class="gradient-mc">MC</span>
-    </h1>
+<main class="container">
+  <div class="content-wrapper">
 
-    <div class="subtitle" id="typing-text">
-      Vanilla Servers by Aragasu
-    </div>
+    <!-- Scrambled title -->
+    <h1 id="scramble-text" class="fade-in">Aragasu<span class="gradient-mc">MC</span></h1>
 
+    <!-- Typing subtitle -->
+    <p class="subtitle fade-in" id="typing-subtitle"></p>
+
+    <!-- Games section -->
     <div class="games-wrapper fade-in">
+      <!-- Minecraft -->
       <div class="game-column">
-        <div class="ip">mc.aragasu.xyz</div>
-        <button class="btn secondary small" onclick="copyText('mc.aragasu.xyz')">Copy</button>
+        <img src="minecraft.svg" alt="Minecraft Logo" class="game-logo">
+        <p class="ip">mc.aragasu.xyz</p>
+        <button class="btn secondary" id="copy-mc-btn">Copy</button>
       </div>
 
+      <!-- Divider -->
       <div class="divider"></div>
 
+      <!-- Hytale -->
       <div class="game-column">
-        <div class="ip">ht.aragasu.xyz</div>
-        <button class="btn secondary small" onclick="copyText('ht.aragasu.xyz')">Copy</button>
+        <img src="hytale.svg" alt="Hytale Logo" class="game-logo">
+        <p class="ip">ht.aragasu.xyz</p>
+        <button class="btn secondary" id="copy-ht-btn">Copy</button>
       </div>
     </div>
 
+    <!-- Contact section -->
     <div class="contact-wrapper fade-in">
       <div class="contact-row">
         <a class="btn secondary small" href="https://discord.com/users/873234979239383040" target="_blank">
@@ -54,55 +61,86 @@
       </div>
     </div>
 
-    <div class="disclaimer fade-in">
-      The AragasuMC server is not affiliated with Minecraft, Mojang Studios, Hypixel Studios, or Hytale, nor should it be considered a company endorsed by any of the aforementioned entities.
-      <br><br>
-      All rights reserved.
-    </div>
   </div>
 
-  <script>
-    // === Scramble title + tab title ===
-    const el = document.getElementById('scramble-text');
-    const chars = 'abcdefghijklmnopqrstuvwxyz#?!=()';
-    const originalText = 'AragasuMC';
-    let frame = 0;
-    const totalFrames = 30;
+  <!-- Disclaimer + All Rights Reserved -->
+  <p class="disclaimer fade-in">
+    AragasuMC is an independent project and is not affiliated with, associated with, authorized by, endorsed by, or in any way officially connected with Mojang Studios, Minecraft, Hypixel Studios, or Hytale.<br>
+    All trademarks, service marks, and company names are the property of their respective owners.<br>
+    Minecraft® / Mojang Studios © 2009–2026<br>
+    Hytale® / Hypixel Studios<br><br>
+    © 2026 AragasuMC. All Rights Reserved.
+  </p>
 
-    function scramble() {
-      let output = '';
-      for (let i = 0; i < originalText.length; i++) {
-        output += Math.random() < frame / totalFrames
-          ? originalText[i]
-          : chars[Math.floor(Math.random() * chars.length)];
-      }
+</main>
 
-      el.textContent = output;
-      document.title = output;
+<script>
+  // === Scrambled title ===
+  const titleEl = document.getElementById('scramble-text');
+  const titleChars = 'abcdefghijklmnopqrstuvwxyz#?!=()';
+  const titleText = "AragasuMC";
+  let frame = 0;
+  const totalFrames = 30;
+  const frameDelay = 30;
 
-      frame++;
-      if (frame <= totalFrames) {
-        requestAnimationFrame(scramble);
+  function scrambleTitle() {
+    let output = '';
+    for (let i = 0; i < titleText.length; i++) {
+      if(Math.random() < frame / totalFrames){
+        output += titleText[i];
       } else {
-        el.innerHTML = 'Aragasu<span class="gradient-mc">MC</span>';
-        document.title = originalText;
+        output += titleChars[Math.floor(Math.random() * titleChars.length)];
       }
     }
-
-    scramble();
-
-    // === Copy helper ===
-    function copyText(text) {
-      navigator.clipboard.writeText(text);
+    titleEl.innerHTML = output.replace("MC", "<span class='gradient-mc'>MC</span>");
+    frame++;
+    if(frame <= totalFrames){
+      requestAnimationFrame(()=>setTimeout(scrambleTitle, frameDelay));
+    } else {
+      startTypingSubtitle();
     }
+  }
+  scrambleTitle();
 
-    // === Fade in ===
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.fade-in').forEach(el => {
-        el.classList.add('visible');
-      });
+  // === Typing subtitle ===
+  const subtitleEl = document.getElementById('typing-subtitle');
+  const subtitleText = "Vanilla Servers by Aragasu";
+  let subIndex = 0;
+
+  function startTypingSubtitle() {
+    if(subIndex < subtitleText.length){
+      subtitleEl.textContent += subtitleText[subIndex];
+      subIndex++;
+      setTimeout(startTypingSubtitle, 80);
+    }
+  }
+
+  // === Copy buttons ===
+  document.getElementById('copy-mc-btn').addEventListener('click', ()=>{
+    navigator.clipboard.writeText("mc.aragasu.xyz").then(()=>{
+      const btn = document.getElementById('copy-mc-btn');
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(()=>btn.textContent = orig,1500);
     });
-  </script>
+  });
+
+  document.getElementById('copy-ht-btn').addEventListener('click', ()=>{
+    navigator.clipboard.writeText("ht.aragasu.xyz").then(()=>{
+      const btn = document.getElementById('copy-ht-btn');
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(()=>btn.textContent = orig,1500);
+    });
+  });
+
+  // === Fade-in animation for all ===
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      requestAnimationFrame(() => el.classList.add('visible'));
+    });
+  });
+</script>
 
 </body>
 </html>
