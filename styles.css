@@ -146,7 +146,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
   position: relative;
   gap: 3.5rem; /* Abstand vom Divider */
 }
