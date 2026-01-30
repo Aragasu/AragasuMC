@@ -196,3 +196,15 @@ h1 {
   opacity: 1;
   transform: translateY(0);
               }
+
+
+@media (max-width: 768px) {
+  .games-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .divider {
+    display: none;
+  }
+}
