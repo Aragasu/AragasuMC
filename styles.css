@@ -28,7 +28,7 @@ body::before {
   background:
     url('images/nobg.svg') center center / cover no-repeat,
     url('images/bg1.svg') center center / cover no-repeat;
-  opacity: 0.6; /* Gesamte Ebene auf 60% sichtbar */
+  opacity: 0.25; /* Gesamte Ebene auf 60% sichtbar */
   z-index: -1; /* hinter allem */
 }
 
