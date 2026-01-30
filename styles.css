@@ -7,49 +7,33 @@
 body {
   font-family: 'Unbounded', sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 4rem;
-  position: relative;
   background: linear-gradient(135deg, #050008, #120014, #1a001f);
+  overflow-x: hidden;
 }
 
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background:
-    url('images/nobg.svg') center center / cover no-repeat,
-    url('images/bg1.svg') center center / cover no-repeat;
-  opacity: 0.25; /* 25% sichtbar */
-  z-index: -1; /* liegt hinter allem */
-}
-
-.container {
-  width: 100%;
-  text-align: center;
+    url('images/nobg.svg') center / cover no-repeat,
+    url('images/bg1.svg') center / cover no-repeat;
+  opacity: 0.25;
+  z-index: -1;
 }
 
 .content-wrapper {
   min-height: 100vh;
+  padding: 3rem 1rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2rem 1rem;
+  text-align: center;
 }
 
 h1 {
-  font-size: clamp(2rem, 12vw, 5rem);
-  font-weight: 700;
-  text-align: center;
+  font-size: clamp(2.5rem, 10vw, 5rem);
   line-height: 1.1;
 }
 
@@ -60,134 +44,88 @@ h1 {
 }
 
 .subtitle {
-  font-size: clamp(0.9rem, 1.8vw, 1.5rem);
-  color: rgba(255,255,255,0.8);
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
+  font-size: clamp(0.9rem, 1.8vw, 1.4rem);
+  opacity: 0.75;
 }
 
 .games-wrapper {
+  margin-top: 2rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 1.5rem;
+  gap: 4rem;
   position: relative;
-  flex-wrap: wrap;
-  gap: 3.5rem;
 }
 
 .game-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 140px;
-}
-
-.game-logo {
-  width: 60px;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
 }
 
 .ip {
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
   margin-bottom: 0.5rem;
-  text-align: center;
+}
+
+.divider {
+  width: 2px;
+  height: 60px;
+  background: rgba(255,255,255,0.3);
 }
 
 .btn {
-  display: inline-block;
-  margin: 0.3rem 0;
-  padding: 0.6rem 1.5rem;
+  padding: 0.5rem 1.4rem;
   border-radius: 999px;
-  font-weight: 500;
-  text-decoration: none;
+  background: #000;
+  border: none;
   cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-/* === Buttons: black background + gradient text === */
-.btn.secondary {
-  background-color: #000; /* schwarzer Button-Hintergrund */
-  color: transparent;      /* Text selbst transparent */
+  font-weight: 500;
+  color: transparent;
+  background-image: linear-gradient(45deg, #8a2be2, #ff2fdc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(45deg, #8a2be2, #ff2fdc); /* Gradient für Text */
-  border: none;
-  box-shadow: 0 0 8px rgba(138,43,226,0.6), 0 0 16px rgba(255,47,220,0.4);
+  box-shadow: 0 0 10px rgba(138,43,226,0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.btn.secondary:hover {
+.btn:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 0 12px #8a2be2,
-    0 0 24px #ff2fdc,
-    0 0 36px #8a2be2;
+  box-shadow: 0 0 20px rgba(255,47,220,0.8);
 }
 
 .btn.small {
-  padding: 0.4rem 1rem;
   font-size: 0.75rem;
 }
 
-/* === Contact Section === */
 .contact-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
 .contact-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 4rem;
   position: relative;
-  gap: 6rem;
 }
 
 .contact-divider {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   width: 2px;
-  height: 28px;
+  height: 26px;
   background: rgba(255,255,255,0.3);
-  z-index: 0;
-}
-
-.contact-row a {
-  position: relative;
-  z-index: 1;
-}
-
-.divider {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  background: rgba(255,255,255,0.3);
-  top: 0;
-  bottom: 0;
-  z-index: 0;
 }
 
 .disclaimer {
-  margin-top: 6rem;          /* Abstand zum Content darüber */
-  padding: 0 1rem 1.5rem;    /* etwas Luft nach unten */
+  margin-top: 5rem;
   font-size: clamp(0.4rem, 1vw, 0.6rem);
-  color: rgba(255,255,255,0.2);
+  opacity: 0.2;
+  max-width: 900px;
   text-align: left;
-  line-height: 1.3;
-  width: 100%;
-  max-width: 900px;          /* optional, sieht cleaner aus */
 }
 
-/* === Global Fade-in === */
 .fade-in {
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: 0.8s ease;
 }
 
 .fade-in.visible {
