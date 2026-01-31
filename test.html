@@ -29,8 +29,8 @@
     p {
       font-size: 1.5rem;
       margin-top: 20px;
-      color: #fff; /* White text */
-      white-space: nowrap;
+      color: #fff;
+      white-space: pre-line; /* erlaubt \n */
       overflow: hidden;
       border-right: 2px solid #fff;
     }
@@ -47,12 +47,12 @@
     const originalText = el.textContent;
     let frame = 0;
     const totalFrames = 30;
-    const frameDelay = 30; // ms
+    const frameDelay = 30;
 
     function scramble() {
       let output = '';
-      for(let i = 0; i < originalText.length; i++) {
-        if(Math.random() < frame / totalFrames) {
+      for (let i = 0; i < originalText.length; i++) {
+        if (Math.random() < frame / totalFrames) {
           output += originalText[i];
         } else {
           output += chars[Math.floor(Math.random() * chars.length)];
@@ -60,29 +60,31 @@
       }
       el.textContent = output;
       frame++;
-      if(frame <= totalFrames) {
+      if (frame <= totalFrames) {
         requestAnimationFrame(() => setTimeout(scramble, frameDelay));
       }
     }
 
     scramble();
 
-    // Repeat animation every 3 seconds
     setInterval(() => {
       frame = 0;
       scramble();
-    }, 11000);
+    }, 60000);
 
     // === Typing animation ===
     const typingEl = document.getElementById('typing-text');
-    const typingText = "You found our useless redirect testing page!";
+    const typingText =
+      "You found our useless redirect page!\n" +
+      "You can close this page, theres nothing to see here.";
+
     let typingIndex = 0;
 
     function typeText() {
-      if(typingIndex < typingText.length) {
+      if (typingIndex < typingText.length) {
         typingEl.textContent += typingText[typingIndex];
         typingIndex++;
-        setTimeout(typeText, 80); // typing speed in ms
+        setTimeout(typeText, 80);
       }
     }
 
@@ -91,10 +93,9 @@
     // === Close tab automatically after 10 seconds ===
     setTimeout(() => {
       window.close();
-      // If browser prevents close, you could redirect instead:
+      // Fallback:
       // window.location.href = "about:blank";
     }, 10000);
   </script>
 </body>
 </html>
-
